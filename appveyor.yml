@@ -4,14 +4,14 @@ environment:
   APPVEYOR_BAKE_IMAGE: win-grpc-2019
 
 platform:
-  - x86
   - x64
 
 install:
   - cd C:\Tools\vcpkg
   - git pull
   - .\bootstrap-vcpkg.bat
+  - SET CONFIGURATION=release
+  - echo.set(VCPKG_BUILD_TYPE %CONFIGURATION%)>> C:\Tools\vcpkg\triplets\x64-windows.cmake
   - cd %APPVEYOR_BUILD_FOLDER%
-  - vcpkg install grpc:x86-windows
   - vcpkg install grpc:x64-windows
   
