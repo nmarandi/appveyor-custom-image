@@ -15,4 +15,4 @@ install:
   - cd %APPVEYOR_BUILD_FOLDER%
   - vcpkg install grpc:x64-windows
   
-  build: off
+build: off
