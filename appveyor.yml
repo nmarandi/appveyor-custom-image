@@ -1,0 +1,17 @@
+image: Visual Studio 2019
+
+environment:
+  APPVEYOR_BAKE_IMAGE: win-grpc-2019
+
+platform:
+  - x86
+  - x64
+
+install:
+  - cd C:\Tools\vcpkg
+  - git pull
+  - .\bootstrap-vcpkg.bat
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - vcpkg install grpc:x86-windows
+  - vcpkg install grpc:x64-windows
+  
